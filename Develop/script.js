@@ -1,17 +1,29 @@
+
+
+
+
+
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var characterSet = 
+var characterSet = document.querySelector()
+var lowerCase = document.querySelector("#lowerCase");
+var upperCase = document.querySelector("#capital");
+var numbers = document.querySelector("#num");
+var symbol = document.querySelector("#symbol");
+var passwordPrint = document.querySelector("#password");
+//var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 //add characters into data set, start with 97-122
 
 alert ("Would you like to generate a new password?");
 //group alert?
+//use arrays to push?
 
 var Added = {
-  lower : getlowerCase ,
-  upperCase : getcapital,
-  numbers : getnum,
-  symbol : getsymbol
+  getLower : lowerCase ,
+  getUpper : capital,
+  getNumbers : num,
+  getSymbol : symbol
 }
 
 let prompt = ("How many characters long yould you like your password to be?(please select between 8-126)");
@@ -53,5 +65,6 @@ passwordText.value = password;
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
 //create seperate math.randoms for character array. push array with any characters
 //selected remeber the character number sheet. want capital? push true value into data array
