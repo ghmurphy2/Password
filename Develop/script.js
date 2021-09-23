@@ -5,7 +5,14 @@ var characterSet =
 //add characters into data set, start with 97-122
 
 alert ("Would you like to generate a new password?");
+//group alert?
 
+var Added = {
+  lower : getlowerCase ,
+  upperCase : getcapital,
+  numbers : getnum,
+  symbol : getsymbol
+}
 
 let prompt = ("How many characters long yould you like your password to be?(please select between 8-126)");
 
@@ -19,17 +26,23 @@ function parameters3 (){
 return alert( "would you like you password to include capitals?");
 }
 
-parameters()
-
-function lower (){ 
-  return (Math.floor (Math.random * 26 ); 
+function lowerCase (){ 
+  return (Math.floor (Math.random * 26 ) + 97); 
 }
+
+ function capital () {
+   return (Math.floor (Math.random * 26 ) + 65);
+ }
+
+ function num () {
+  return (Math.floor (Math.random * 10 ) + 48);
+} 
+//any bellow 10
 
 function symbol(){
-  const symbols = " !@#%^&*()_+" ;
-
-  return 
-}
+  const symbols = " !@#%^&*()_+[]{}<>,.?/'~`/-" ;
+  return symbols (Math.floor (Math.random * symbols.length ));
+} //better way to do this?
 
 //add to 97 for lower case
 
