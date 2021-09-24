@@ -1,70 +1,65 @@
+// Get references to the #generate element
 
+const lowerCaseLetter = ['a' , 'b', 'c']
+const upperCaseLetter = ['A' , 'B', 'C']
+const numberCase = ['1' , '2', '3']
+const symbolCase = ['!' , '@', '#']
 
+//length 8-128
+function generatePassword(){
+  let charArray = []
+  let passwordFinal = ""
+  let length = parseInt (prompt('How many characters would you like'));
+  if(length <8 || length > 128){
+    return alert ("Invalid charcter length please try again." )
+  }
 
+  //new boolean confirm, dumped alerts
+  let shouldContainLower = confirm ('Would you like to include lowercase letters?');
+  let shouldContainUpper = confirm ('Would you like to include uppercase letters?');
+  let shouldContainNumbers = confirm ('Would you like to include numbers?');
+  let shouldContainSymbol = confirm ('Would you like to include symbols?');
 
+  if(shouldContainLower === false && 
+    shouldContainUpper === false &&
+    shouldContainNumbers === false &&
+    shouldContainSymbol === false){
+      return alert('Please select one type of character')
+      //alert fail
 
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
-var characterSet = document.querySelector()
-var lowerCase = document.querySelector("#lowerCase");
-var upperCase = document.querySelector("#capital");
-var numbers = document.querySelector("#num");
-var symbol = document.querySelector("#symbol");
-var passwordPrint = document.querySelector("#password");
-//var generateBtn = document.querySelector("#generate");
+    }
+//true case check
+    if (shouldContainLower === true){ 
+      charArray = charArray.concat(lowerCaseLetter)
+    }
+    if (shouldContainUpper === true){ 
+      charArray = charArray.concat(upperCaseLetter)
+    }
+    if (shouldContainNumbers === true){ 
+      charArray = charArray.concat(numberCase)
+    }
+    if (shouldContainSymbol === true){ 
+      charArray = charArray.concat(symbolCase)
+    }
+    //new array stucture and dumped push
+console.log(charArray)
+
+for (let i=0; i<length ; i++){
+  let charIndex = Math.floor(Math.random() * charArray.length); 
+  let temp = charArray[charIndex];
+  passwordFinal += temp;
+  console.log(passwordFinal);
+}
+
+return passwordFinal;
+}
+
+var generateBtn = document.querySelector('#generate');
 // Write password to the #password input
-//add characters into data set, start with 97-122
-
-alert ("Would you like to generate a new password?");
-//group alert?
-//use arrays to push?
-
-var Added = {
-  getLower : lowerCase ,
-  getUpper : capital,
-  getNumbers : num,
-  getSymbol : symbol
+function writePassword() {
+  var password = generatePassword();
+ const passwordText = document.getElementById('password')
+  passwordText.value = password;
 }
-
-let prompt = ("How many characters long yould you like your password to be?(please select between 8-126)");
-
-function parameters1 (){
-return alert ("Would you like this password to include special characters?");
-}
-function parameters2 (){  
-return alert ("Would you like your password to include numbers?");
-}
-function parameters3 (){
-return alert( "would you like you password to include capitals?");
-}
-
-function lowerCase (){ 
-  return (Math.floor (Math.random * 26 ) + 97); 
-}
-
- function capital () {
-   return (Math.floor (Math.random * 26 ) + 65);
- }
-
- function num () {
-  return (Math.floor (Math.random * 10 ) + 48);
-} 
-//any bellow 10
-
-function symbol(){
-  const symbols = " !@#%^&*()_+[]{}<>,.?/'~`/-" ;
-  return symbols (Math.floor (Math.random * symbols.length ));
-} //better way to do this?
-
-//add to 97 for lower case
-
-var password = generatePassword();
-var passwordText = document.querySelector("#password");
-
-passwordText.value = password;
-
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
-//create seperate math.randoms for character array. push array with any characters
-//selected remeber the character number sheet. want capital? push true value into data array
+generateBtn.addEventListener('click', writePassword);
