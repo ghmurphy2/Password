@@ -1,9 +1,11 @@
 // Get references to the #generate element
 
-const lowerCaseLetter = ['a' , 'b', 'c']
-const upperCaseLetter = ['A' , 'B', 'C']
+const lowerCaseLetter = ['a' , 'b', 'c', 'd', 'e', 'f', 'g', 'h','i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 'x', 't', 'u', 'v', 'w','x', 'y', 'z']
+const upperCaseLetter = ['A' , 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'X', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 const numberCase = ['1' , '2', '3']
 const symbolCase = ['!' , '@', '#']
+
+//add finished later, less clean then code
 
 //length 8-128
 function generatePassword(){
@@ -12,8 +14,9 @@ function generatePassword(){
   let length = parseInt (prompt('How many characters would you like'));
   if(length <8 || length > 128){
     return alert ("Invalid charcter length please try again." )
+    //establish length credentials 
   }
-
+  //new comfirm strategy
   //new boolean confirm, dumped alerts
   let shouldContainLower = confirm ('Would you like to include lowercase letters?');
   let shouldContainUpper = confirm ('Would you like to include uppercase letters?');
@@ -53,9 +56,10 @@ for (let i=0; i<length ; i++){
 
 return passwordFinal;
 }
-
+//using concat instead of combined array options
 var generateBtn = document.querySelector('#generate');
 // Write password to the #password input
+// Write password to the #password input use password final
 function writePassword() {
   var password = generatePassword();
  const passwordText = document.getElementById('password')
